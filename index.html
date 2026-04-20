@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es" data-tema="claro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. Tomás Steinhardt V. — Odontología Mínimamente Invasiva</title>
+  <meta name="description" content="Cirujano Dentista en Santiago, Chile. Odontología mínimamente invasiva con enfoque integral, cercano y humano.">
+
+  <!-- Fuentes: cursiva handwritten + serif elegante + sans-serif moderna -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+  <!-- ============ NAVBAR ============ -->
+  <header class="navbar" id="navbar">
+    <div class="nav-contenedor">
+      <a href="#inicio" class="nav-logo">
+        <span class="cursiva">Dr. Tomás</span>
+        <span class="nav-logo-apellido">Steinhardt V.</span>
+      </a>
+      <nav class="nav-menu" id="navMenu">
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#tratamientos">Tratamientos</a>
+        <a href="#trayectoria">Trayectoria</a>
+        <a href="#casos">Casos</a>
+        <a href="#resenas">Reseñas</a>
+        <a href="#ubicaciones">Ubicaciones</a>
+        <a href="#contacto" class="nav-cta">Agendar</a>
+      </nav>
+      <div class="nav-acciones">
+        <button id="btnTema" class="btn-tema" aria-label="Cambiar tema">
+          <span class="icono-sol">☀️</span>
+          <span class="icono-luna">🌙</span>
+        </button>
+        <button id="btnMenu" class="btn-menu" aria-label="Menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="inicio">
+    <div class="hero-fondo"></div>
+    <div class="hero-contenido">
+      <p class="hero-kicker">Cirujano Dentista · Reg. SIS N° 805368</p>
+      <h1 class="hero-nombre cursiva">Dr.&nbsp;Tomás Steinhardt&nbsp;V.</h1>
+      <p class="hero-lema">Odontología Mínimamente Invasiva</p>
+      <p class="hero-sub">Atención integral, cercana y humana en Santiago de Chile.</p>
+      <div class="hero-botones">
+        <a href="#ubicaciones" class="btn btn-primario">Agenda tu hora</a>
+        <a href="#tratamientos" class="btn btn-secundario">Ver tratamientos</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>Desliza</span>
+      <div class="hero-scroll-linea"></div>
+    </div>
+  </section>
+
+  <!-- ============ SOBRE MÍ ============ -->
+  <section class="seccion" id="sobre-mi">
+    <div class="contenedor sobre-grid">
+      <div class="sobre-texto">
+        <p class="seccion-kicker">Sobre mí</p>
+        <h2 class="seccion-titulo">Odontología que <em class="cursiva">cuida</em> antes de intervenir</h2>
+        <p id="sobreParrafo1"></p>
+        <p id="sobreParrafo2"></p>
+
+        <div class="sobre-detalles">
+          <div class="sobre-detalle">
+            <span class="sobre-etiqueta">Nacionalidades</span>
+            <span id="sobreNacionalidades"></span>
+          </div>
+          <div class="sobre-detalle">
+            <span class="sobre-etiqueta">Idiomas</span>
+            <span id="sobreIdiomas"></span>
+          </div>
+        </div>
+      </div>
+      <div class="sobre-imagen">
+        <img src="img/consulta/tomas-consulta.jpg" alt="Dr. Tomás Steinhardt en su consulta" loading="lazy">
+        <div class="sobre-firma">
+          <span class="cursiva">Dr. Tomás Steinhardt V.</span>
+          <small>Cirujano Dentista · Reg. SIS 805368</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TRATAMIENTOS ============ -->
+  <section class="seccion seccion-alt" id="tratamientos">
+    <div class="contenedor">
+      <div class="seccion-header">
+        <p class="seccion-kicker">Tratamientos</p>
+        <h2 class="seccion-titulo">Odontología general con <em class="cursiva">enfoque integral</em></h2>
+        <p class="seccion-sub">Cada tratamiento se planifica según el caso, priorizando la mínima intervención y explicándote el proceso paso a paso.</p>
+      </div>
+      <div class="tratamientos-grid" id="tratamientosGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============ TRAYECTORIA ============ -->
+  <section class="seccion" id="trayectoria">
+    <div class="contenedor">
+      <div class="seccion-header">
+        <p class="seccion-kicker">Trayectoria</p>
+        <h2 class="seccion-titulo">Formación y <em class="cursiva">experiencia</em> clínica</h2>
+      </div>
+
+      <div class="trayectoria-grid">
+        <div class="trayectoria-col">
+          <h3 class="trayectoria-subtitulo">Experiencia</h3>
+          <ol class="timeline" id="experienciaLista"></ol>
+        </div>
+        <div class="trayectoria-col">
+          <h3 class="trayectoria-subtitulo">Formación académica</h3>
+          <div class="formacion-titulo" id="formacionTitulo"></div>
+          <ul class="formacion-previa" id="formacionPrevia"></ul>
+
+          <h3 class="trayectoria-subtitulo" style="margin-top: 2rem;">Diplomados y cursos</h3>
+          <ul class="diplomados-lista" id="diplomadosLista"></ul>
+        </div>
+      </div>
+
+      <div class="diplomas-galeria" id="diplomasGaleria">
+        <!-- Aquí aparecerán los escaneos de diplomas cuando los subas a img/diplomas/ -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CASOS CLÍNICOS ============ -->
+  <section class="seccion seccion-alt" id="casos">
+    <div class="contenedor">
+      <div class="seccion-header">
+        <p class="seccion-kicker">Casos clínicos</p>
+        <h2 class="seccion-titulo">Resultados <em class="cursiva">reales</em></h2>
+        <p class="seccion-sub">Todos los casos publicados cuentan con consentimiento escrito. La identidad de los pacientes se protege en todo momento.</p>
+      </div>
+      <div class="casos-grid" id="casosGrid">
+        <!-- Los casos se cargan desde contenido.js -->
+      </div>
+      <div id="casosVacio" class="seccion-vacia">
+        <p>Próximamente: galería de casos clínicos.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RESEÑAS ============ -->
+  <section class="seccion" id="resenas">
+    <div class="contenedor">
+      <div class="seccion-header">
+        <p class="seccion-kicker">Testimonios</p>
+        <h2 class="seccion-titulo">Lo que dicen mis <em class="cursiva">pacientes</em></h2>
+      </div>
+      <div class="resenas-grid" id="resenasGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============ UBICACIONES ============ -->
+  <section class="seccion seccion-alt" id="ubicaciones">
+    <div class="contenedor">
+      <div class="seccion-header">
+        <p class="seccion-kicker">Ubicaciones</p>
+        <h2 class="seccion-titulo">Dos sedes en <em class="cursiva">Santiago</em></h2>
+      </div>
+      <div class="ubicaciones-grid" id="ubicacionesGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACTO ============ -->
+  <section class="seccion contacto" id="contacto">
+    <div class="contenedor">
+      <div class="contacto-caja">
+        <p class="seccion-kicker">Contacto</p>
+        <h2 class="seccion-titulo">¿Conversamos?</h2>
+        <p class="contacto-texto">Agenda tu evaluación o escríbeme por Instagram o correo. Te responderé a la brevedad.</p>
+        <div class="contacto-opciones">
+          <a href="" id="linkInstagram" class="contacto-boton">
+            <span class="contacto-icono">📷</span>
+            <div>
+              <strong>Instagram</strong>
+              <small id="textoInstagram"></small>
+            </div>
+          </a>
+          <a href="" id="linkMail" class="contacto-boton">
+            <span class="contacto-icono">✉️</span>
+            <div>
+              <strong>Correo</strong>
+              <small id="textoMail"></small>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="contenedor footer-grid">
+      <div>
+        <p class="cursiva footer-nombre">Dr. Tomás Steinhardt V.</p>
+        <p class="footer-sub">Cirujano Dentista · Reg. SIS N° 805368</p>
+        <p class="footer-sub">Odontología Mínimamente Invasiva</p>
+      </div>
+      <div>
+        <p class="footer-titulo">Enlaces</p>
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#tratamientos">Tratamientos</a>
+        <a href="#trayectoria">Trayectoria</a>
+        <a href="#ubicaciones">Ubicaciones</a>
+      </div>
+      <div>
+        <p class="footer-titulo">Contacto</p>
+        <a id="footerInstagram" href="">Instagram</a>
+        <a id="footerMail" href="">Correo</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <small>© <span id="anioActual"></span> Dr. Tomás Steinhardt Valcarce · Todos los derechos reservados</small>
+    </div>
+  </footer>
+
+  <!-- Modal de agendamiento -->
+  <div class="modal" id="modalAgendar">
+    <div class="modal-contenido">
+      <button class="modal-cerrar" id="modalCerrar">✕</button>
+      <h3 id="modalTitulo">Agendar tu hora</h3>
+      <p id="modalTexto"></p>
+      <div class="modal-acciones" id="modalAcciones"></div>
+    </div>
+  </div>
+
+  <script src="contenido.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

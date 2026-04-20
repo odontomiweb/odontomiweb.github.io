@@ -1,0 +1,9 @@
+# Carpetas originales (fuente): no se publican, solo uso /img
+logo/
+fotos/
+referencias/
+
+# Sistema
+Thumbs.db
+.DS_Store
+desktop.ini
