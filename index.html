@@ -23,17 +23,22 @@
         <span class="nav-logo-apellido">Steinhardt V.</span>
       </a>
       <nav class="nav-menu" id="navMenu">
-        <a href="#sobre-mi">Sobre mí</a>
-        <a href="#tratamientos">Tratamientos</a>
-        <a href="#trayectoria">Trayectoria</a>
-        <a href="#casos">Casos</a>
-        <a href="#resenas">Reseñas</a>
-        <a href="#pacientes-felices">Pacientes</a>
-        <a href="#videos-ig">Videos</a>
-        <a href="#ubicaciones">Ubicaciones</a>
-        <a href="#contacto" class="nav-cta">Agendar</a>
+        <a href="#sobre-mi" data-i18n="nav.sobre">Sobre mí</a>
+        <a href="#tratamientos" data-i18n="nav.tratamientos">Tratamientos</a>
+        <a href="#trayectoria" data-i18n="nav.trayectoria">Trayectoria</a>
+        <a href="#casos" data-i18n="nav.casos">Casos</a>
+        <a href="#resenas" data-i18n="nav.resenas">Reseñas</a>
+        <a href="#pacientes-felices" data-i18n="nav.pacientes">Pacientes</a>
+        <a href="#videos-ig" data-i18n="nav.videos">Videos</a>
+        <a href="#ubicaciones" data-i18n="nav.ubicaciones">Ubicaciones</a>
+        <a href="#contacto" class="nav-cta" data-i18n="nav.agendar">Agendar</a>
       </nav>
       <div class="nav-acciones">
+        <div class="btn-idioma" id="btnIdioma">
+          <button data-idioma="es" class="activo">ES</button>
+          <button data-idioma="en">EN</button>
+          <button data-idioma="de">DE</button>
+        </div>
         <button id="btnTema" class="btn-tema" aria-label="Cambiar tema">
           <span class="icono-sol">☀️</span>
           <span class="icono-luna">🌙</span>
@@ -49,17 +54,17 @@
   <section class="hero" id="inicio">
     <div class="hero-fondo"></div>
     <div class="hero-contenido">
-      <p class="hero-kicker">Cirujano Dentista · Reg. SIS N° 805368</p>
+      <p class="hero-kicker" data-i18n="hero.kicker">Cirujano Dentista · Reg. SIS N° 805368</p>
       <h1 class="hero-nombre cursiva">Dr.&nbsp;Tomás Steinhardt&nbsp;V.</h1>
-      <p class="hero-lema">Odontología Mínimamente Invasiva</p>
-      <p class="hero-sub">Atención integral, cercana y humana en Santiago de Chile.</p>
+      <p class="hero-lema" data-i18n="hero.lema">Odontología Mínimamente Invasiva</p>
+      <p class="hero-sub" data-i18n="hero.sub">Atención integral, cercana y humana en Santiago de Chile.</p>
       <div class="hero-botones">
-        <a href="#ubicaciones" class="btn btn-primario">Agenda tu hora</a>
-        <a href="#tratamientos" class="btn btn-secundario">Ver tratamientos</a>
+        <a href="#ubicaciones" class="btn btn-primario" data-i18n="hero.btnAgendar">Agenda tu hora</a>
+        <a href="#tratamientos" class="btn btn-secundario" data-i18n="hero.btnTratamientos">Ver tratamientos</a>
       </div>
     </div>
     <div class="hero-scroll">
-      <span>Desliza</span>
+      <span data-i18n="hero.scroll">Desliza</span>
       <div class="hero-scroll-linea"></div>
     </div>
   </section>
@@ -68,23 +73,23 @@
   <section class="seccion" id="sobre-mi">
     <div class="contenedor sobre-grid">
       <div class="sobre-texto">
-        <p class="seccion-kicker">Sobre mí</p>
-        <h2 class="seccion-titulo">Odontología que <em class="cursiva">cuida</em> antes de intervenir</h2>
+        <p class="seccion-kicker" data-i18n="sobre.kicker">Sobre mí</p>
+        <h2 class="seccion-titulo" data-i18n-html="sobre.tituloHtml">Odontología que <em class="cursiva">cuida</em> antes de intervenir</h2>
         <p id="sobreParrafo1"></p>
         <p id="sobreParrafo2"></p>
 
         <div class="sobre-detalles">
           <div class="sobre-detalle">
-            <span class="sobre-etiqueta">Idiomas</span>
+            <span class="sobre-etiqueta" data-i18n="sobre.idiomasLabel">Idiomas</span>
             <span id="sobreIdiomas"></span>
           </div>
         </div>
       </div>
       <div class="sobre-imagen">
-        <img src="img/consulta/tomas-consulta.jpg" alt="Dr. Tomás Steinhardt en su consulta" loading="lazy">
+        <img src="img/consulta/tomas-consulta.jpg" alt="Dr. Tomás Steinhardt" loading="lazy">
         <div class="sobre-firma">
           <span class="cursiva">Dr. Tomás Steinhardt V.</span>
-          <small>Cirujano Dentista · Reg. SIS 805368</small>
+          <small data-i18n="sobre.firma">Cirujano Dentista · Reg. SIS 805368</small>
         </div>
       </div>
     </div>
@@ -94,9 +99,9 @@
   <section class="seccion seccion-alt" id="tratamientos">
     <div class="contenedor">
       <div class="seccion-header">
-        <p class="seccion-kicker">Tratamientos</p>
-        <h2 class="seccion-titulo">Odontología general con <em class="cursiva">enfoque integral</em></h2>
-        <p class="seccion-sub">Cada tratamiento se planifica según el caso, priorizando la mínima intervención y explicándote el proceso paso a paso.</p>
+        <p class="seccion-kicker" data-i18n="tratamientos.kicker">Tratamientos</p>
+        <h2 class="seccion-titulo" data-i18n-html="tratamientos.tituloHtml">Odontología general con <em class="cursiva">enfoque integral</em></h2>
+        <p class="seccion-sub" data-i18n="tratamientos.sub">Cada tratamiento se planifica según el caso, priorizando la mínima intervención y explicándote el proceso paso a paso.</p>
       </div>
       <div class="tratamientos-grid" id="tratamientosGrid"></div>
     </div>
@@ -106,28 +111,26 @@
   <section class="seccion" id="trayectoria">
     <div class="contenedor">
       <div class="seccion-header">
-        <p class="seccion-kicker">Trayectoria</p>
-        <h2 class="seccion-titulo">Formación y <em class="cursiva">experiencia</em> clínica</h2>
+        <p class="seccion-kicker" data-i18n="trayectoria.kicker">Trayectoria</p>
+        <h2 class="seccion-titulo" data-i18n-html="trayectoria.tituloHtml">Formación y <em class="cursiva">experiencia</em> clínica</h2>
       </div>
 
       <div class="trayectoria-grid">
         <div class="trayectoria-col">
-          <h3 class="trayectoria-subtitulo">Experiencia</h3>
+          <h3 class="trayectoria-subtitulo" data-i18n="trayectoria.experiencia">Experiencia</h3>
           <ol class="timeline" id="experienciaLista"></ol>
         </div>
         <div class="trayectoria-col">
-          <h3 class="trayectoria-subtitulo">Formación académica</h3>
+          <h3 class="trayectoria-subtitulo" data-i18n="trayectoria.formacion">Formación académica</h3>
           <div class="formacion-titulo" id="formacionTitulo"></div>
           <ul class="formacion-previa" id="formacionPrevia"></ul>
 
-          <h3 class="trayectoria-subtitulo" style="margin-top: 2rem;">Diplomados y cursos</h3>
+          <h3 class="trayectoria-subtitulo" style="margin-top: 2rem;" data-i18n="trayectoria.diplomados">Diplomados y cursos</h3>
           <ul class="diplomados-lista" id="diplomadosLista"></ul>
         </div>
       </div>
 
-      <div class="diplomas-galeria" id="diplomasGaleria">
-        <!-- Aquí aparecerán los escaneos de diplomas cuando los subas a img/diplomas/ -->
-      </div>
+      <div class="diplomas-galeria" id="diplomasGaleria"></div>
     </div>
   </section>
 
@@ -135,15 +138,13 @@
   <section class="seccion seccion-alt" id="casos">
     <div class="contenedor">
       <div class="seccion-header">
-        <p class="seccion-kicker">Casos clínicos</p>
-        <h2 class="seccion-titulo">Resultados <em class="cursiva">reales</em></h2>
-        <p class="seccion-sub">Todos los casos publicados cuentan con consentimiento escrito. La identidad de los pacientes se protege en todo momento.</p>
+        <p class="seccion-kicker" data-i18n="casos.kicker">Casos clínicos</p>
+        <h2 class="seccion-titulo" data-i18n-html="casos.tituloHtml">Resultados <em class="cursiva">reales</em></h2>
+        <p class="seccion-sub" data-i18n="casos.sub">Todos los casos publicados cuentan con consentimiento escrito. La identidad de los pacientes se protege en todo momento.</p>
       </div>
-      <div class="casos-grid" id="casosGrid">
-        <!-- Los casos se cargan desde contenido.js -->
-      </div>
+      <div class="casos-grid" id="casosGrid"></div>
       <div id="casosVacio" class="seccion-vacia">
-        <p>Próximamente: galería de casos clínicos.</p>
+        <p data-i18n="casos.vacio">Próximamente: galería de casos clínicos.</p>
       </div>
     </div>
   </section>
@@ -152,8 +153,8 @@
   <section class="seccion" id="resenas">
     <div class="contenedor">
       <div class="seccion-header">
-        <p class="seccion-kicker">Testimonios</p>
-        <h2 class="seccion-titulo">Lo que dicen mis <em class="cursiva">pacientes</em></h2>
+        <p class="seccion-kicker" data-i18n="resenas.kicker">Testimonios</p>
+        <h2 class="seccion-titulo" data-i18n-html="resenas.tituloHtml">Lo que dicen mis <em class="cursiva">pacientes</em></h2>
       </div>
       <div class="resenas-grid" id="resenasGrid"></div>
     </div>
@@ -163,9 +164,9 @@
   <section class="seccion seccion-alt" id="pacientes-felices">
     <div class="contenedor">
       <div class="seccion-header">
-        <p class="seccion-kicker">Pacientes felices</p>
-        <h2 class="seccion-titulo">Sonrisas que hablan <em class="cursiva">por sí solas</em></h2>
-        <p class="seccion-sub">Momentos reales con pacientes tras sus atenciones. Todos con consentimiento y buena onda.</p>
+        <p class="seccion-kicker" data-i18n="pacientes.kicker">Pacientes felices</p>
+        <h2 class="seccion-titulo" data-i18n-html="pacientes.tituloHtml">Sonrisas que hablan <em class="cursiva">por sí solas</em></h2>
+        <p class="seccion-sub" data-i18n="pacientes.sub">Momentos reales con pacientes tras sus atenciones. Todos con consentimiento y buena onda.</p>
       </div>
       <div class="collage-pacientes" id="collagePacientes"></div>
     </div>
@@ -175,8 +176,8 @@
   <section class="seccion seccion-alt" id="ubicaciones">
     <div class="contenedor">
       <div class="seccion-header">
-        <p class="seccion-kicker">Ubicaciones</p>
-        <h2 class="seccion-titulo">Dos sedes en <em class="cursiva">Santiago</em></h2>
+        <p class="seccion-kicker" data-i18n="ubicaciones.kicker">Ubicaciones</p>
+        <h2 class="seccion-titulo" data-i18n-html="ubicaciones.tituloHtml">Dos sedes en <em class="cursiva">Santiago</em></h2>
       </div>
       <div class="ubicaciones-grid" id="ubicacionesGrid"></div>
     </div>
@@ -186,29 +187,29 @@
   <section class="seccion contacto" id="contacto">
     <div class="contenedor">
       <div class="contacto-caja">
-        <p class="seccion-kicker">Contacto</p>
-        <h2 class="seccion-titulo">¿Conversamos?</h2>
-        <p class="contacto-texto">Déjame tus datos en el formulario y me pongo en contacto contigo, o escríbeme directo por Instagram o correo.</p>
+        <p class="seccion-kicker" data-i18n="contacto.kicker">Contacto</p>
+        <h2 class="seccion-titulo" data-i18n="contacto.titulo">¿Conversamos?</h2>
+        <p class="contacto-texto" data-i18n="contacto.texto">Déjame tus datos en el formulario y me pongo en contacto contigo, o escríbeme directo por Instagram o correo.</p>
         <div class="contacto-opciones">
           <a href="" id="linkInstagram" class="contacto-boton">
             <span class="contacto-icono">📷</span>
             <div>
-              <strong>Instagram</strong>
+              <strong data-i18n="contacto.instagram">Instagram</strong>
               <small id="textoInstagram"></small>
             </div>
           </a>
           <a href="" id="linkMail" class="contacto-boton">
             <span class="contacto-icono">✉️</span>
             <div>
-              <strong>Correo</strong>
+              <strong data-i18n="contacto.correo">Correo</strong>
               <small id="textoMail"></small>
             </div>
           </a>
         </div>
       </div>
       <div class="formulario-caja">
-        <h3 class="formulario-titulo">Déjame tus datos</h3>
-        <p class="formulario-sub">Completa el formulario y me contactaré contigo para agendar tu hora.</p>
+        <h3 class="formulario-titulo" data-i18n="contacto.formTitulo">Déjame tus datos</h3>
+        <p class="formulario-sub" data-i18n="contacto.formSub">Completa el formulario y me contactaré contigo para agendar tu hora.</p>
         <div class="formulario-wrapper">
           <iframe id="formularioGoogle"
                   src=""
@@ -226,9 +227,9 @@
   <section class="seccion" id="videos-ig">
     <div class="contenedor">
       <div class="seccion-header">
-        <p class="seccion-kicker">Educación en redes</p>
-        <h2 class="seccion-titulo">Videos <em class="cursiva">educativos</em></h2>
-        <p class="seccion-sub">Contenido breve y claro sobre salud dental, tratamientos y tips. Publicado en mi Instagram.</p>
+        <p class="seccion-kicker" data-i18n="videos.kicker">Educación en redes</p>
+        <h2 class="seccion-titulo" data-i18n-html="videos.tituloHtml">Videos <em class="cursiva">educativos</em></h2>
+        <p class="seccion-sub" data-i18n="videos.sub">Contenido breve y claro sobre salud dental, tratamientos y tips. Publicado en mi Instagram.</p>
       </div>
       <div class="videos-ig-grid" id="videosIgGrid"></div>
     </div>
@@ -238,9 +239,9 @@
   <section class="banner-ig" id="banner-ig">
     <div class="contenedor banner-ig-contenedor">
       <div class="banner-ig-texto">
-        <p class="banner-ig-kicker">Educación dental en redes</p>
-        <h2 class="banner-ig-titulo">Sígueme en <span class="cursiva">Instagram</span></h2>
-        <p class="banner-ig-sub">Videos cortos y claros sobre cuidado bucal, tratamientos y tips semanales.</p>
+        <p class="banner-ig-kicker" data-i18n="banner.kicker">Educación dental en redes</p>
+        <h2 class="banner-ig-titulo" data-i18n-html="banner.tituloHtml">Sígueme en <span class="cursiva">Instagram</span></h2>
+        <p class="banner-ig-sub" data-i18n="banner.sub">Videos cortos y claros sobre cuidado bucal, tratamientos y tips semanales.</p>
       </div>
       <a href="" id="bannerIgLink" target="_blank" rel="noopener" class="banner-ig-btn">
         <span class="banner-ig-icono">📷</span>
@@ -255,24 +256,24 @@
     <div class="contenedor footer-grid">
       <div>
         <p class="cursiva footer-nombre">Dr. Tomás Steinhardt V.</p>
-        <p class="footer-sub">Cirujano Dentista · Reg. SIS N° 805368</p>
-        <p class="footer-sub">Odontología Mínimamente Invasiva</p>
+        <p class="footer-sub" data-i18n="footer.registro">Cirujano Dentista · Reg. SIS N° 805368</p>
+        <p class="footer-sub" data-i18n="footer.lema">Odontología Mínimamente Invasiva</p>
       </div>
       <div>
-        <p class="footer-titulo">Enlaces</p>
-        <a href="#sobre-mi">Sobre mí</a>
-        <a href="#tratamientos">Tratamientos</a>
-        <a href="#trayectoria">Trayectoria</a>
-        <a href="#ubicaciones">Ubicaciones</a>
+        <p class="footer-titulo" data-i18n="footer.enlaces">Enlaces</p>
+        <a href="#sobre-mi" data-i18n="nav.sobre">Sobre mí</a>
+        <a href="#tratamientos" data-i18n="nav.tratamientos">Tratamientos</a>
+        <a href="#trayectoria" data-i18n="nav.trayectoria">Trayectoria</a>
+        <a href="#ubicaciones" data-i18n="nav.ubicaciones">Ubicaciones</a>
       </div>
       <div>
-        <p class="footer-titulo">Contacto</p>
+        <p class="footer-titulo" data-i18n="footer.contacto">Contacto</p>
         <a id="footerInstagram" href="">Instagram</a>
-        <a id="footerMail" href="">Correo</a>
+        <a id="footerMail" href="" data-i18n="contacto.correo">Correo</a>
       </div>
     </div>
     <div class="footer-bottom">
-      <small>© <span id="anioActual"></span> Dr. Tomás Steinhardt Valcarce · Todos los derechos reservados</small>
+      <small>© <span id="anioActual"></span> Dr. Tomás Steinhardt Valcarce · <span data-i18n="footer.derechos">Todos los derechos reservados</span></small>
     </div>
   </footer>
 
@@ -280,13 +281,14 @@
   <div class="modal" id="modalAgendar">
     <div class="modal-contenido">
       <button class="modal-cerrar" id="modalCerrar">✕</button>
-      <h3 id="modalTitulo">Agendar tu hora</h3>
+      <h3 id="modalTitulo" data-i18n="modal.titulo">Agendar tu hora</h3>
       <p id="modalTexto"></p>
       <div class="modal-acciones" id="modalAcciones"></div>
     </div>
   </div>
 
   <script src="contenido.js"></script>
+  <script src="traducciones.js"></script>
   <script src="script.js"></script>
   <script async src="//www.instagram.com/embed.js"></script>
 </body>

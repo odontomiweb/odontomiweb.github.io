@@ -1,17 +1,37 @@
 // =============================================================
 //   SCRIPT — Dr. Tomás Steinhardt V.
-//   Interactividad: tema claro/oscuro, menú móvil, render de
-//   contenido dinámico (desde contenido.js), modal de agenda,
-//   animaciones al hacer scroll.
+//   Interactividad + render + i18n (ES/EN/DE)
 // =============================================================
+
+let IDIOMA_ACTUAL = "es";
+
+// Helper: obtiene el texto correcto según el idioma actual
+function t(valor) {
+  if (valor == null) return "";
+  if (typeof valor === "string") return valor;
+  if (typeof valor === "object") {
+    return valor[IDIOMA_ACTUAL] || valor.es || "";
+  }
+  return String(valor);
+}
+
+function tUI(clave) {
+  const entrada = TRADUCCIONES_UI[clave];
+  if (!entrada) return clave;
+  return entrada[IDIOMA_ACTUAL] || entrada.es || clave;
+}
+
 
 // ---------- AL CARGAR LA PÁGINA ----------
 document.addEventListener("DOMContentLoaded", () => {
+  IDIOMA_ACTUAL = localStorage.getItem("idioma") || "es";
   inicializarTema();
   inicializarMenuMovil();
   inicializarScrollNavbar();
   inicializarAnimacionesScroll();
+  inicializarIdioma();
   renderizarContenido();
+  aplicarTextosUI();
   inicializarModal();
   inicializarProteccionImagenes();
   document.getElementById("anioActual").textContent = new Date().getFullYear();
@@ -19,32 +39,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // =============================================================
-//   PROTECCIÓN DE IMÁGENES (bloqueo click derecho + toast)
+//   IDIOMA (ES / EN / DE)
 // =============================================================
-function inicializarProteccionImagenes() {
-  document.addEventListener("contextmenu", (e) => {
-    if (e.target.tagName === "IMG") {
-      e.preventDefault();
-      mostrarToast("Contenido protegido. Sígueme en @" + PROFESIONAL.instagram);
-    }
+function inicializarIdioma() {
+  const cont = document.getElementById("btnIdioma");
+  if (!cont) return;
+  cont.querySelectorAll("button").forEach(btn => {
+    if (btn.dataset.idioma === IDIOMA_ACTUAL) btn.classList.add("activo");
+    else btn.classList.remove("activo");
+    btn.addEventListener("click", () => cambiarIdioma(btn.dataset.idioma));
   });
-  document.addEventListener("dragstart", (e) => {
-    if (e.target.tagName === "IMG") e.preventDefault();
-  });
+  document.documentElement.lang = IDIOMA_ACTUAL;
 }
 
-function mostrarToast(mensaje) {
-  let toast = document.getElementById("toastProteccion");
-  if (!toast) {
-    toast = document.createElement("div");
-    toast.id = "toastProteccion";
-    toast.className = "toast-proteccion";
-    document.body.appendChild(toast);
-  }
-  toast.textContent = mensaje;
-  toast.classList.add("visible");
-  clearTimeout(toast._timer);
-  toast._timer = setTimeout(() => toast.classList.remove("visible"), 2500);
+function cambiarIdioma(nuevo) {
+  IDIOMA_ACTUAL = nuevo;
+  localStorage.setItem("idioma", nuevo);
+  document.documentElement.lang = nuevo;
+  document.querySelectorAll("#btnIdioma button").forEach(b => {
+    b.classList.toggle("activo", b.dataset.idioma === nuevo);
+  });
+  aplicarTextosUI();
+  renderizarContenido();
+}
+
+function aplicarTextosUI() {
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    el.textContent = tUI(el.dataset.i18n);
+  });
+  document.querySelectorAll("[data-i18n-html]").forEach(el => {
+    el.innerHTML = tUI(el.dataset.i18nHtml);
+  });
 }
 
 
@@ -110,7 +135,42 @@ function inicializarAnimacionesScroll() {
 
 
 // =============================================================
-//   RENDER DEL CONTENIDO (desde contenido.js)
+//   PROTECCIÓN DE IMÁGENES (bloqueo click derecho + toast)
+// =============================================================
+function inicializarProteccionImagenes() {
+  document.addEventListener("contextmenu", (e) => {
+    if (e.target.tagName === "IMG") {
+      e.preventDefault();
+      const msg = {
+        es: "Contenido protegido. Sígueme en @" + PROFESIONAL.instagram,
+        en: "Protected content. Follow me at @" + PROFESIONAL.instagram,
+        de: "Geschützter Inhalt. Folge mir auf @" + PROFESIONAL.instagram
+      };
+      mostrarToast(msg[IDIOMA_ACTUAL] || msg.es);
+    }
+  });
+  document.addEventListener("dragstart", (e) => {
+    if (e.target.tagName === "IMG") e.preventDefault();
+  });
+}
+
+function mostrarToast(mensaje) {
+  let toast = document.getElementById("toastProteccion");
+  if (!toast) {
+    toast = document.createElement("div");
+    toast.id = "toastProteccion";
+    toast.className = "toast-proteccion";
+    document.body.appendChild(toast);
+  }
+  toast.textContent = mensaje;
+  toast.classList.add("visible");
+  clearTimeout(toast._timer);
+  toast._timer = setTimeout(() => toast.classList.remove("visible"), 2500);
+}
+
+
+// =============================================================
+//   RENDER DEL CONTENIDO
 // =============================================================
 function renderizarContenido() {
   renderizarSobreMi();
@@ -126,26 +186,26 @@ function renderizarContenido() {
 
 // --- Sobre mí ---
 function renderizarSobreMi() {
-  document.getElementById("sobreParrafo1").textContent = SOBRE_MI.parrafo1;
-  document.getElementById("sobreParrafo2").textContent = SOBRE_MI.parrafo2;
-  document.getElementById("sobreIdiomas").textContent = SOBRE_MI.idiomas.join(" · ");
+  document.getElementById("sobreParrafo1").textContent = t(SOBRE_MI.parrafo1);
+  document.getElementById("sobreParrafo2").textContent = t(SOBRE_MI.parrafo2);
+  document.getElementById("sobreIdiomas").textContent = t(SOBRE_MI.idiomas).join(" · ");
 }
 
 // --- Tratamientos ---
 function renderizarTratamientos() {
   const grid = document.getElementById("tratamientosGrid");
-  grid.innerHTML = TRATAMIENTOS.map(t => {
+  grid.innerHTML = TRATAMIENTOS.map(tt => {
     let precioHTML = "";
-    if (typeof t.precio === "number") {
-      precioHTML = t.precio === 0
-        ? `<p class="tratamiento-precio">Sin costo</p>`
-        : `<p class="tratamiento-precio">Desde $${t.precio.toLocaleString("es-CL")}</p>`;
+    if (typeof tt.precio === "number") {
+      precioHTML = tt.precio === 0
+        ? `<p class="tratamiento-precio">${tUI("precio.sinCosto")}</p>`
+        : `<p class="tratamiento-precio">${tUI("precio.desde")} $${tt.precio.toLocaleString("es-CL")}</p>`;
     }
     return `
       <div class="tratamiento-card">
-        <span class="tratamiento-icono">${t.icono || "🦷"}</span>
-        <h3 class="tratamiento-titulo">${t.titulo}</h3>
-        <p class="tratamiento-desc">${t.descripcion}</p>
+        <span class="tratamiento-icono">${tt.icono || "🦷"}</span>
+        <h3 class="tratamiento-titulo">${t(tt.titulo)}</h3>
+        <p class="tratamiento-desc">${t(tt.descripcion)}</p>
         ${precioHTML}
       </div>
     `;
@@ -159,26 +219,26 @@ function renderizarTrayectoria() {
   expLista.innerHTML = EXPERIENCIA.map(e => `
     <li class="timeline-item">
       <div class="timeline-lugar">${e.lugar}</div>
-      <div class="timeline-rol">${e.rol}</div>
+      <div class="timeline-rol">${t(e.rol)}</div>
     </li>
   `).join("");
 
-  // Formación
+  // Formación académica
   const ft = FORMACION.titulo;
   document.getElementById("formacionTitulo").innerHTML = `
-    <strong>${ft.grado}</strong>
+    <strong>${t(ft.grado)}</strong>
     <span>${ft.institucion} · ${ft.anio}</span>
   `;
   document.getElementById("formacionPrevia").innerHTML =
-    FORMACION.educacionPrevia.map(l => `<li>• ${l}</li>`).join("");
+    t(FORMACION.educacionPrevia).map(l => `<li>• ${l}</li>`).join("");
 
   // Diplomados
   document.getElementById("diplomadosLista").innerHTML =
     FORMACION.diplomados.map(d => `
       <li>
         <div>
-          <span class="diplomado-nombre">${d.nombre}</span>
-          <span class="diplomado-institucion">${d.institucion}</span>
+          <span class="diplomado-nombre">${t(d.nombre)}</span>
+          <span class="diplomado-institucion">${t(d.institucion)}</span>
         </div>
       </li>
     `).join("");
@@ -186,8 +246,9 @@ function renderizarTrayectoria() {
   // Diplomas (imágenes escaneadas)
   const galeria = document.getElementById("diplomasGaleria");
   if (DIPLOMAS_IMAGENES.length > 0) {
+    galeria.style.display = "";
     galeria.innerHTML = DIPLOMAS_IMAGENES.map(d => `
-      <img src="${d.ruta}" alt="${d.titulo}" loading="lazy">
+      <img src="${d.ruta}" alt="${t(d.titulo)}" loading="lazy">
     `).join("");
   } else {
     galeria.style.display = "none";
@@ -204,14 +265,15 @@ function renderizarCasos() {
     return;
   }
   vacio.style.display = "none";
+  grid.style.display = "";
   grid.innerHTML = CASOS.map(c => `
     <figure class="caso-card">
       <div class="caso-imagen">
-        <img src="${c.imagen}" alt="${c.titulo}" loading="lazy">
+        <img src="${c.imagen}" alt="${t(c.titulo)}" loading="lazy">
       </div>
       <figcaption class="caso-info">
-        <h3 class="caso-titulo">${c.titulo}</h3>
-        <p class="caso-desc">${c.descripcion}</p>
+        <h3 class="caso-titulo">${t(c.titulo)}</h3>
+        <p class="caso-desc">${t(c.descripcion)}</p>
       </figcaption>
     </figure>
   `).join("");
@@ -221,14 +283,14 @@ function renderizarCasos() {
 function renderizarResenas() {
   const grid = document.getElementById("resenasGrid");
   if (RESENAS.length === 0) {
-    grid.innerHTML = `<p style="text-align:center; grid-column: 1/-1; color: var(--color-texto-suave); font-style: italic;">Próximamente: testimonios de pacientes.</p>`;
+    grid.innerHTML = `<p style="text-align:center; grid-column: 1/-1; color: var(--color-texto-suave); font-style: italic;">…</p>`;
     return;
   }
   grid.innerHTML = RESENAS.map(r => `
     <div class="resena-card">
       <div class="resena-estrellas">${"★".repeat(r.estrellas)}${"☆".repeat(5 - r.estrellas)}</div>
-      <p class="resena-texto">${r.texto}</p>
-      <p class="resena-nombre">— ${r.nombre}</p>
+      <p class="resena-texto">${t(r.texto)}</p>
+      <p class="resena-nombre">— ${t(r.nombre)}</p>
     </div>
   `).join("");
 }
@@ -243,7 +305,7 @@ function renderizarPacientesFelices() {
   }
   grid.innerHTML = PACIENTES_FELICES.map(p => `
     <figure class="collage-item">
-      <img src="${p.ruta}" alt="${p.alt}" loading="lazy">
+      <img src="${p.ruta}" alt="${t(p.alt)}" loading="lazy">
     </figure>
   `).join("");
 }
@@ -257,16 +319,16 @@ function renderizarUbicaciones() {
               src="https://www.google.com/maps?q=${u.mapaQuery}&output=embed"
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
-              title="Mapa ${u.nombre}"></iframe>
+              title="${t(u.nombre)}"></iframe>
       <div class="ubicacion-info">
-        <h3 class="ubicacion-nombre">${u.nombre}</h3>
-        <p class="ubicacion-direccion">${u.direccion}</p>
+        <h3 class="ubicacion-nombre">${t(u.nombre)}</h3>
+        <p class="ubicacion-direccion">${t(u.direccion)}</p>
         <ul class="ubicacion-horarios">
-          ${u.horarios.map(h => `<li>${h}</li>`).join("")}
+          ${t(u.horarios).map(h => `<li>${h}</li>`).join("")}
         </ul>
         <div class="ubicacion-cta">
           <button class="btn btn-primario" onclick="abrirModalAgenda('${u.id}')">
-            ${u.textoBotonAgendar}
+            ${t(u.textoBotonAgendar)}
           </button>
         </div>
       </div>
@@ -288,9 +350,7 @@ function renderizarContacto() {
 
   // Formulario de Google embebido
   const form = document.getElementById("formularioGoogle");
-  if (form && PROFESIONAL.formularioGoogle) {
-    form.src = PROFESIONAL.formularioGoogle;
-  }
+  if (form && PROFESIONAL.formularioGoogle) form.src = PROFESIONAL.formularioGoogle;
 
   // Footer
   const footerIg = document.getElementById("footerInstagram");
@@ -308,7 +368,7 @@ function renderizarContacto() {
   if (bannerHandle) bannerHandle.textContent = "@" + PROFESIONAL.instagram;
 }
 
-// --- Videos de Instagram (embeds) ---
+// --- Videos IG (embeds) ---
 function renderizarVideosIG() {
   const grid = document.getElementById("videosIgGrid");
   if (!grid) return;
@@ -326,10 +386,7 @@ function renderizarVideosIG() {
       </blockquote>
     </div>
   `).join("");
-  // Re-procesar embeds si el script de IG ya se cargó
-  if (window.instgrm && window.instgrm.Embeds) {
-    window.instgrm.Embeds.process();
-  }
+  if (window.instgrm && window.instgrm.Embeds) window.instgrm.Embeds.process();
 }
 
 
@@ -347,22 +404,22 @@ function inicializarModal() {
 function abrirModalAgenda(idUbicacion) {
   const u = UBICACIONES.find(x => x.id === idUbicacion);
   if (!u) return;
-  document.getElementById("modalTitulo").textContent = u.textoBotonAgendar;
+  document.getElementById("modalTitulo").textContent = t(u.textoBotonAgendar);
 
   const acciones = document.getElementById("modalAcciones");
   let texto = "";
   let botones = "";
 
   if (u.accionAgendar === "yany") {
-    texto = "Para agendar en la Clínica Yany llama al teléfono y luego avísame por Instagram para coordinar:";
+    texto = tUI("modal.textoYany");
     botones = `
-      <a href="${u.telefonoLink}" class="btn btn-primario">📞 Llamar ${u.telefono}</a>
-      <a href="https://instagram.com/${PROFESIONAL.instagram}" target="_blank" rel="noopener" class="btn btn-secundario">📷 Avisar por Instagram</a>
+      <a href="${u.telefonoLink}" class="btn btn-primario">📞 ${tUI("modal.llamar")} ${u.telefono}</a>
+      <a href="https://instagram.com/${PROFESIONAL.instagram}" target="_blank" rel="noopener" class="btn btn-secundario">📷 ${tUI("modal.avisarIG")}</a>
     `;
   } else if (u.accionAgendar === "providencia") {
-    texto = "Para coordinar una hora en Providencia, escríbeme por Instagram:";
+    texto = tUI("modal.textoProvi");
     botones = `
-      <a href="https://instagram.com/${PROFESIONAL.instagram}" target="_blank" rel="noopener" class="btn btn-primario">📷 Coordinar por Instagram</a>
+      <a href="https://instagram.com/${PROFESIONAL.instagram}" target="_blank" rel="noopener" class="btn btn-primario">📷 ${tUI("modal.coordinarIG")}</a>
     `;
   }
 
