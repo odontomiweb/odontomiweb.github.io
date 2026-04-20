@@ -214,13 +214,10 @@ function renderizarTratamientos() {
 
 // --- Trayectoria ---
 function renderizarTrayectoria() {
-  // Experiencia (lista corta)
+  // Experiencia (resumida, secundaria)
   const expLista = document.getElementById("experienciaLista");
   expLista.innerHTML = EXPERIENCIA.map(e => `
-    <li class="timeline-item">
-      <div class="timeline-lugar">${e.lugar}</div>
-      <div class="timeline-rol">${t(e.rol)}</div>
-    </li>
+    <li><span class="exp-lugar">${e.lugar}</span> — ${t(e.rol)}</li>
   `).join("");
 
   // Formación académica
