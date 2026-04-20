@@ -128,7 +128,6 @@ function renderizarContenido() {
 function renderizarSobreMi() {
   document.getElementById("sobreParrafo1").textContent = SOBRE_MI.parrafo1;
   document.getElementById("sobreParrafo2").textContent = SOBRE_MI.parrafo2;
-  document.getElementById("sobreNacionalidades").textContent = SOBRE_MI.nacionalidades;
   document.getElementById("sobreIdiomas").textContent = SOBRE_MI.idiomas.join(" · ");
 }
 
@@ -155,14 +154,12 @@ function renderizarTratamientos() {
 
 // --- Trayectoria ---
 function renderizarTrayectoria() {
-  // Experiencia (timeline)
+  // Experiencia (lista corta)
   const expLista = document.getElementById("experienciaLista");
   expLista.innerHTML = EXPERIENCIA.map(e => `
     <li class="timeline-item">
       <div class="timeline-lugar">${e.lugar}</div>
       <div class="timeline-rol">${e.rol}</div>
-      <div class="timeline-periodo">${e.periodo}</div>
-      <p class="timeline-desc">${e.descripcion}</p>
     </li>
   `).join("");
 
@@ -267,7 +264,6 @@ function renderizarUbicaciones() {
         <ul class="ubicacion-horarios">
           ${u.horarios.map(h => `<li>${h}</li>`).join("")}
         </ul>
-        ${u.telefono ? `<p class="ubicacion-telefono">Tel: <strong>${u.telefono}</strong></p>` : ""}
         <div class="ubicacion-cta">
           <button class="btn btn-primario" onclick="abrirModalAgenda('${u.id}')">
             ${u.textoBotonAgendar}

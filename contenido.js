@@ -27,9 +27,8 @@ const PROFESIONAL = {
 // ---------- TEXTO DE "SOBRE MÍ" ----------
 const SOBRE_MI = {
   parrafo1: "Soy cirujano dentista titulado de la Universidad del Desarrollo, con enfoque en odontología integral, cercana y humana. Mi trabajo se basa en la filosofía de la Odontología Mínimamente Invasiva: preservar al máximo el tejido sano, intervenir lo justo y acompañar al paciente con claridad en cada paso.",
-  parrafo2: "Atiendo pacientes adultos, niños y personas con condición del espectro autista (TEA), priorizando un trato empático, paciente y adaptado a cada persona.",
-  nacionalidades: "Argentina · Alemana",
-  idiomas: ["Español (nativo)", "Alemán (B1)", "Inglés (B1)"]
+  parrafo2: "Atiendo pacientes adultos, niños y personas con condición del espectro autista (TEA) y otras condiciones del neurodesarrollo, discapacidad intelectual, motora o sensorial — priorizando un trato empático, paciente y adaptado a cada persona.",
+  idiomas: ["Español", "Alemán", "Inglés"]
 };
 
 
@@ -146,36 +145,11 @@ const UBICACIONES = [
 
 // ---------- EXPERIENCIA LABORAL ----------
 const EXPERIENCIA = [
-  {
-    lugar: "Grupo Odontológico Yany",
-    rol: "Atención directa a pacientes",
-    periodo: "Jul 2025 — actualidad",
-    descripcion: "Atención integral a más de 300 pacientes mensuales, procedimientos de baja y mediana complejidad."
-  },
-  {
-    lugar: "Clínica Odonto Art",
-    rol: "Atención directa a pacientes",
-    periodo: "Dic 2024 — Jul 2025",
-    descripcion: "Más de 200 pacientes mensuales, procedimientos de baja y mediana complejidad."
-  },
-  {
-    lugar: "Clínica Dental Uno Salud",
-    rol: "Atención directa a pacientes",
-    periodo: "Abr — Oct 2024",
-    descripcion: "Atención a más de 800 pacientes en la comuna de Macul: urgencias, operatoria y prevención."
-  },
-  {
-    lugar: "MovilCare",
-    rol: "Atención en clínica dental móvil",
-    periodo: "Mar — Sept 2024",
-    descripcion: "Evaluaciones y prevención a trabajadores de empresas privadas (Carozzi, Derco, Sotraser, SLEP Colchagua)."
-  },
-  {
-    lugar: "CESFAM Santiago Nueva Extremadura",
-    rol: "Internado Clínico Asistencial",
-    periodo: "2023",
-    descripcion: "Atención directa a más de 1000 niños y adultos en La Pintana: cirugía, rehabilitación y prevención."
-  }
+  { lugar: "Grupo Odontológico Yany", rol: "Atención directa a pacientes" },
+  { lugar: "Clínica Odonto Art", rol: "Atención directa a pacientes" },
+  { lugar: "Clínica Dental Uno Salud", rol: "Atención directa a pacientes" },
+  { lugar: "MovilCare", rol: "Atención en clínica dental móvil" },
+  { lugar: "CESFAM Santiago Nueva Extremadura", rol: "Internado Clínico Asistencial" }
 ];
 
 
