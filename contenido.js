@@ -479,11 +479,19 @@ const DIPLOMAS_IMAGENES = [
     }
   },
   {
-    ruta: "img/diplomas/graduacion-udd-3.jpg",
+    ruta: "img/diplomas/titulacion-diploma.jpg",
     titulo: {
-      es: "Celebrando la titulación en la UDD",
-      en: "Celebrating graduation at UDD",
-      de: "Abschlussfeier an der UDD"
+      es: "Recibiendo el Título Profesional de Cirujano Dentista — UDD",
+      en: "Receiving the Dentist Professional Degree — UDD",
+      de: "Erhalt des Berufstitels als Zahnarzt — UDD"
+    }
+  },
+  {
+    ruta: "img/diplomas/diploma-asistencia-neuro.jpg",
+    titulo: {
+      es: "Charla: Manejo odontológico de pacientes con necesidades especiales — UDD 2023",
+      en: "Lecture: Dental management of patients with special needs — UDD 2023",
+      de: "Vortrag: Zahnärztliche Betreuung von Patient:innen mit besonderen Bedürfnissen — UDD 2023"
     }
   }
 ];
