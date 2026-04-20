@@ -1078,6 +1078,91 @@ button { background: none; border: none; cursor: pointer; font-family: inherit; 
 }
 
 /* ============================================================
+   BANNER INSTAGRAM (CTA antes del footer)
+   ============================================================ */
+.banner-ig {
+  background: linear-gradient(135deg, var(--color-acento-marino) 0%, var(--color-acento-teal) 100%);
+  padding: 4rem 0;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.banner-ig::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.banner-ig-contenedor {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.5rem;
+  position: relative;
+  z-index: 1;
+}
+.banner-ig-texto { flex: 1; }
+.banner-ig-kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.78rem;
+  font-weight: 600;
+  opacity: 0.85;
+  margin-bottom: 0.6rem;
+}
+.banner-ig-titulo {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 500;
+  margin-bottom: 0.6rem;
+  color: #fff;
+}
+.banner-ig-titulo .cursiva { color: #fff; }
+.banner-ig-sub {
+  font-size: 1.05rem;
+  opacity: 0.9;
+  max-width: 520px;
+}
+.banner-ig-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  background: #fff;
+  color: var(--color-acento-marino);
+  padding: 1.1rem 1.8rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.05rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  white-space: nowrap;
+}
+.banner-ig-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+.banner-ig-icono { font-size: 1.4rem; }
+.banner-ig-flecha {
+  font-size: 1.2rem;
+  transition: transform 0.25s ease;
+}
+.banner-ig-btn:hover .banner-ig-flecha { transform: translateX(4px); }
+
+@media (max-width: 720px) {
+  .banner-ig-contenedor {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+  .banner-ig-btn { width: 100%; justify-content: center; }
+}
+
+/* ============================================================
    RESPONSIVE
    ============================================================ */
 @media (max-width: 900px) {

@@ -272,6 +272,12 @@ function renderizarContacto() {
   const footerMail = document.getElementById("footerMail");
   footerMail.href = "mailto:" + PROFESIONAL.email;
   footerMail.textContent = PROFESIONAL.email;
+
+  // Banner Instagram
+  const bannerLink = document.getElementById("bannerIgLink");
+  const bannerHandle = document.getElementById("bannerIgHandle");
+  if (bannerLink) bannerLink.href = PROFESIONAL.instagramURL;
+  if (bannerHandle) bannerHandle.textContent = "@" + PROFESIONAL.instagram;
 }
 
 
