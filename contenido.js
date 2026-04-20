@@ -227,6 +227,21 @@ const CASOS = [
     titulo: "Proceso de blanqueamiento",
     imagen: "img/casos/blanqueamiento-proceso.jpg",
     descripcion: "Pulido previo, aplicación controlada de gel y verificación final."
+  },
+  {
+    titulo: "Restauración de diente anterior",
+    imagen: "img/casos/00F1D5D8-ECAA-4CA6-AA61-C7C2C4F99720.jpg",
+    descripcion: "Reparación de pieza anterior fracturada con resina compuesta estética."
+  },
+  {
+    titulo: "Blanqueamiento con registro de color",
+    imagen: "img/casos/ERHU3775.JPG",
+    descripcion: "Tono A3 a A1 con barrera gingival protectora — tres etapas documentadas."
+  },
+  {
+    titulo: "Destartraje y pulido profundo",
+    imagen: "img/casos/FD25CF0B-2BC9-4A24-B3F9-EAE51E42D66A.jpg",
+    descripcion: "Remoción de tártaro devolviendo brillo natural y salud a la encía."
   }
 ];
 
@@ -297,10 +312,11 @@ const DIPLOMAS_IMAGENES = [
 // ---------- PACIENTES FELICES (collage) ----------
 // Fotos reales con autorización. Se muestran en un mosaico tipo collage.
 const PACIENTES_FELICES = [
+  { ruta: "img/pacientes/IMG_5001.jpg", alt: "Paciente feliz tras su atención" },
   { ruta: "img/pacientes/paciente-07.jpg", alt: "Paciente feliz tras su atención" },
   { ruta: "img/pacientes/paciente-02.jpg", alt: "Paciente feliz tras su atención" },
-  { ruta: "img/pacientes/paciente-05.jpg", alt: "Paciente feliz tras su atención" },
   { ruta: "img/pacientes/paciente-06.jpg", alt: "Paciente feliz tras su atención" },
+  { ruta: "img/pacientes/paciente-05.jpg", alt: "Paciente feliz tras su atención" },
   { ruta: "img/pacientes/paciente-08.jpg", alt: "Paciente feliz tras su atención" },
   { ruta: "img/pacientes/paciente-03.jpg", alt: "Paciente feliz tras su atención" },
   { ruta: "img/pacientes/paciente-04.jpg", alt: "Paciente feliz tras su atención" },
