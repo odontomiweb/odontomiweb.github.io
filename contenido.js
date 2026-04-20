@@ -259,7 +259,7 @@ const RESENAS = [
   },
   {
     nombre: "Francisca L.",
-    texto: "Fui con mi hijo de 5 años (TEA) y tuvo una paciencia infinita con él. Por primera vez salió sonriendo del dentista 🥺",
+    texto: "Fui con mi hijo de 11 años (TEA) y tuvo una paciencia infinita con él. Por primera vez salió sonriendo del dentista 🥺",
     estrellas: 5,
     origen: "paciente"
   },
@@ -281,5 +281,20 @@ const RESENAS = [
 // ---------- DIPLOMAS (imágenes escaneadas) ----------
 // Sube los escaneos a img/diplomas/ y agrégalos aquí.
 const DIPLOMAS_IMAGENES = [
-  { ruta: "img/consulta/titulacion-udd.jpg", titulo: "Titulación Cirujano Dentista — Universidad del Desarrollo 2023" }
+  { ruta: "img/consulta/titulacion-udd.jpg", titulo: "Titulación Cirujano Dentista — Universidad del Desarrollo 2023" },
+  { ruta: "img/diplomas/graduacion-udd.jpg", titulo: "Ceremonia de titulación — Universidad del Desarrollo 2023" }
+];
+
+
+// ---------- PACIENTES FELICES (collage) ----------
+// Fotos reales con autorización. Se muestran en un mosaico tipo collage.
+const PACIENTES_FELICES = [
+  { ruta: "img/pacientes/paciente-01.jpg", alt: "Paciente feliz tras su atención" },
+  { ruta: "img/pacientes/paciente-02.jpg", alt: "Paciente feliz tras su atención" },
+  { ruta: "img/pacientes/paciente-03.jpg", alt: "Paciente feliz tras su atención" },
+  { ruta: "img/pacientes/paciente-04.jpg", alt: "Paciente feliz tras su atención" },
+  { ruta: "img/pacientes/paciente-05.jpg", alt: "Paciente feliz tras su atención" },
+  { ruta: "img/pacientes/paciente-06.jpg", alt: "Paciente feliz tras su atención" },
+  { ruta: "img/pacientes/paciente-07.jpg", alt: "Paciente feliz tras su atención" },
+  { ruta: "img/pacientes/paciente-08.jpg", alt: "Paciente feliz tras su atención" }
 ];

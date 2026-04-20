@@ -87,6 +87,7 @@ function renderizarContenido() {
   renderizarTrayectoria();
   renderizarCasos();
   renderizarResenas();
+  renderizarPacientesFelices();
   renderizarUbicaciones();
   renderizarContacto();
 }
@@ -191,6 +192,21 @@ function renderizarResenas() {
       <p class="resena-texto">${r.texto}</p>
       <p class="resena-nombre">— ${r.nombre}</p>
     </div>
+  `).join("");
+}
+
+// --- Pacientes felices (collage) ---
+function renderizarPacientesFelices() {
+  const grid = document.getElementById("collagePacientes");
+  if (!grid) return;
+  if (!window.PACIENTES_FELICES || PACIENTES_FELICES.length === 0) {
+    grid.style.display = "none";
+    return;
+  }
+  grid.innerHTML = PACIENTES_FELICES.map(p => `
+    <figure class="collage-item">
+      <img src="${p.ruta}" alt="${p.alt}" loading="lazy">
+    </figure>
   `).join("");
 }
 
