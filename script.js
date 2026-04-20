@@ -13,8 +13,39 @@ document.addEventListener("DOMContentLoaded", () => {
   inicializarAnimacionesScroll();
   renderizarContenido();
   inicializarModal();
+  inicializarProteccionImagenes();
   document.getElementById("anioActual").textContent = new Date().getFullYear();
 });
+
+
+// =============================================================
+//   PROTECCIÓN DE IMÁGENES (bloqueo click derecho + toast)
+// =============================================================
+function inicializarProteccionImagenes() {
+  document.addEventListener("contextmenu", (e) => {
+    if (e.target.tagName === "IMG") {
+      e.preventDefault();
+      mostrarToast("Contenido protegido. Sígueme en @" + PROFESIONAL.instagram);
+    }
+  });
+  document.addEventListener("dragstart", (e) => {
+    if (e.target.tagName === "IMG") e.preventDefault();
+  });
+}
+
+function mostrarToast(mensaje) {
+  let toast = document.getElementById("toastProteccion");
+  if (!toast) {
+    toast = document.createElement("div");
+    toast.id = "toastProteccion";
+    toast.className = "toast-proteccion";
+    document.body.appendChild(toast);
+  }
+  toast.textContent = mensaje;
+  toast.classList.add("visible");
+  clearTimeout(toast._timer);
+  toast._timer = setTimeout(() => toast.classList.remove("visible"), 2500);
+}
 
 
 // =============================================================

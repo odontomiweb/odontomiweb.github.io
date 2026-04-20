@@ -1078,6 +1078,38 @@ button { background: none; border: none; cursor: pointer; font-family: inherit; 
 }
 
 /* ============================================================
+   TOAST PROTECCIÓN IMÁGENES
+   ============================================================ */
+.toast-proteccion {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translate(-50%, 120%);
+  background: rgba(26, 43, 74, 0.95);
+  color: #fff;
+  padding: 0.9rem 1.4rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25);
+  z-index: 9999;
+  opacity: 0;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+  pointer-events: none;
+  max-width: 90vw;
+  text-align: center;
+}
+.toast-proteccion.visible {
+  transform: translate(-50%, 0);
+  opacity: 1;
+}
+img {
+  -webkit-user-drag: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* ============================================================
    VIDEOS EDUCATIVOS INSTAGRAM
    ============================================================ */
 .videos-ig-grid {
