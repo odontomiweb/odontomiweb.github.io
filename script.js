@@ -166,16 +166,15 @@ function renderizarCasos() {
   }
   vacio.style.display = "none";
   grid.innerHTML = CASOS.map(c => `
-    <div class="caso-card">
-      <div class="caso-comparacion">
-        <img src="${c.antes}" alt="Antes — ${c.titulo}" loading="lazy">
-        <img src="${c.despues}" alt="Después — ${c.titulo}" loading="lazy">
+    <figure class="caso-card">
+      <div class="caso-imagen">
+        <img src="${c.imagen}" alt="${c.titulo}" loading="lazy">
       </div>
-      <div class="caso-info">
+      <figcaption class="caso-info">
         <h3 class="caso-titulo">${c.titulo}</h3>
         <p class="caso-desc">${c.descripcion}</p>
-      </div>
-    </div>
+      </figcaption>
+    </figure>
   `).join("");
 }
 
@@ -233,6 +232,12 @@ function renderizarContacto() {
   const mail = document.getElementById("linkMail");
   mail.href = "mailto:" + PROFESIONAL.email;
   document.getElementById("textoMail").textContent = PROFESIONAL.email;
+
+  // Formulario de Google embebido
+  const form = document.getElementById("formularioGoogle");
+  if (form && PROFESIONAL.formularioGoogle) {
+    form.src = PROFESIONAL.formularioGoogle;
+  }
 
   // Footer
   const footerIg = document.getElementById("footerInstagram");

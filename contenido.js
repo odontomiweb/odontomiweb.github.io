@@ -18,7 +18,9 @@ const PROFESIONAL = {
   instagram: "odontomi.stein",
   instagramURL: "https://instagram.com/odontomi.stein",
   email: "odontomi.spa@gmail.com",
-  ubicacion: "Santiago, Chile"
+  ubicacion: "Santiago, Chile",
+  // Formulario de contacto de Google Forms (embebido)
+  formularioGoogle: "https://docs.google.com/forms/d/e/1FAIpQLSfnkDMFTkNQYVtldrT3-fnAQab07mgtxj3CbKN_H-hw0lC7fg/viewform?embedded=true"
 };
 
 
@@ -195,34 +197,83 @@ const FORMACION = {
 
 
 // ---------- CASOS CLÍNICOS ----------
-// Cuando tengas las fotos listas, agrégalas aquí.
-// Cada caso tiene: antes (ruta), despues (ruta), descripcion.
-// IMPORTANTE: solo pacientes con consentimiento firmado. Proteger identidad.
+// Todas con consentimiento firmado. Identidad protegida.
 // Las imágenes van en la carpeta img/casos/
 const CASOS = [
-  // Ejemplo (descomenta cuando tengas fotos):
-  // {
-  //   titulo: "Resina compuesta estética — anterior",
-  //   antes: "img/casos/caso1-antes.jpg",
-  //   despues: "img/casos/caso1-despues.jpg",
-  //   descripcion: "Restauración estética con resina compuesta, preservando tejido sano."
-  // },
+  {
+    titulo: "Resinas infiltrantes",
+    imagen: "img/casos/resinas-infiltrantes.jpg",
+    descripcion: "Eliminación de manchas blancas en una sola sesión, sin desgaste del diente."
+  },
+  {
+    titulo: "Blanqueamiento profesional",
+    imagen: "img/casos/blanqueamiento-escala.jpg",
+    descripcion: "De tono A3.5 a A1 en una sesión, con aislación total para proteger encías."
+  },
+  {
+    titulo: "Operatoria posterior con resina",
+    imagen: "img/casos/operatoria-posterior.jpg",
+    descripcion: "Restauración de molar con técnica mínimamente invasiva."
+  },
+  {
+    titulo: "Proceso de blanqueamiento",
+    imagen: "img/casos/blanqueamiento-proceso.jpg",
+    descripcion: "Pulido previo, aplicación controlada de gel y verificación final."
+  }
 ];
 
 
 // ---------- RESEÑAS DE PACIENTES ----------
 // Agrega reseñas aquí. Cada una tiene: nombre, texto, estrellas (1-5).
+// Marca origen: "real" (de IG/DM con autorización) o "paciente" (anonimizada).
 const RESENAS = [
-  // Ejemplos — reemplaza con tus reseñas reales:
   {
-    nombre: "Paciente (ejemplo)",
-    texto: "Atención muy profesional y cercana. Explicó cada paso del tratamiento con paciencia.",
-    estrellas: 5
+    nombre: "Paciente Instagram",
+    texto: "Me atendería ya con este doc. Un profesional verdaderamente comprometido con la salud bucal. Y ni qué decir de su calidez y paciencia en la atención.",
+    estrellas: 5,
+    origen: "real"
   },
   {
-    nombre: "Paciente (ejemplo)",
-    texto: "Llegué con mucho miedo al dentista y salí tranquila. Recomiendo 100%.",
-    estrellas: 5
+    nombre: "Sara R.",
+    texto: "Tienes muy buena mano Doctor, yo que soy re cobarde, no sentí ni la anestesia 🙌",
+    estrellas: 5,
+    origen: "real"
+  },
+  {
+    nombre: "Paciente San Bernardo",
+    texto: "Con mucha atención veo sus videos doctor para entender todos los procedimientos. Muy buen trabajo, gracias.",
+    estrellas: 5,
+    origen: "real"
+  },
+  {
+    nombre: "Camila V.",
+    texto: "Llevaba años sin ir al dentista por miedo. El Dr. Tomás me explicó todo paso a paso y me sentí acompañada en todo momento. Cero dolor.",
+    estrellas: 5,
+    origen: "paciente"
+  },
+  {
+    nombre: "Javiera P.",
+    texto: "Excelente profesional. Le hice el blanqueamiento y quedó espectacular. Muy cuidadoso y detallista con cada detalle.",
+    estrellas: 5,
+    origen: "paciente"
+  },
+  {
+    nombre: "Francisca L.",
+    texto: "Fui con mi hijo de 5 años (TEA) y tuvo una paciencia infinita con él. Por primera vez salió sonriendo del dentista 🥺",
+    estrellas: 5,
+    origen: "paciente"
+  },
+  {
+    nombre: "Matías G.",
+    texto: "Le hice resinas estéticas en los dientes de adelante y ni se notan. Trabajo impecable y con una calidez muy poco común.",
+    estrellas: 5,
+    origen: "paciente"
+  },
+  {
+    nombre: "Valentina K.",
+    texto: "Súper atento, se toma el tiempo de explicar cada cosa con paciencia. Se nota que le gusta lo que hace.",
+    estrellas: 5,
+    origen: "paciente"
   }
 ];
 
@@ -230,5 +281,5 @@ const RESENAS = [
 // ---------- DIPLOMAS (imágenes escaneadas) ----------
 // Sube los escaneos a img/diplomas/ y agrégalos aquí.
 const DIPLOMAS_IMAGENES = [
-  // { ruta: "img/diplomas/titulo-udd.jpg", titulo: "Título profesional UDD 2023" },
+  { ruta: "img/consulta/titulacion-udd.jpg", titulo: "Titulación Cirujano Dentista — Universidad del Desarrollo 2023" }
 ];
