@@ -289,12 +289,12 @@ const DIPLOMAS_IMAGENES = [
 // ---------- PACIENTES FELICES (collage) ----------
 // Fotos reales con autorización. Se muestran en un mosaico tipo collage.
 const PACIENTES_FELICES = [
-  { ruta: "img/pacientes/paciente-01.jpg", alt: "Paciente feliz tras su atención" },
+  { ruta: "img/pacientes/paciente-07.jpg", alt: "Paciente feliz tras su atención" },
   { ruta: "img/pacientes/paciente-02.jpg", alt: "Paciente feliz tras su atención" },
-  { ruta: "img/pacientes/paciente-03.jpg", alt: "Paciente feliz tras su atención" },
-  { ruta: "img/pacientes/paciente-04.jpg", alt: "Paciente feliz tras su atención" },
   { ruta: "img/pacientes/paciente-05.jpg", alt: "Paciente feliz tras su atención" },
   { ruta: "img/pacientes/paciente-06.jpg", alt: "Paciente feliz tras su atención" },
-  { ruta: "img/pacientes/paciente-07.jpg", alt: "Paciente feliz tras su atención" },
-  { ruta: "img/pacientes/paciente-08.jpg", alt: "Paciente feliz tras su atención" }
+  { ruta: "img/pacientes/paciente-08.jpg", alt: "Paciente feliz tras su atención" },
+  { ruta: "img/pacientes/paciente-03.jpg", alt: "Paciente feliz tras su atención" },
+  { ruta: "img/pacientes/paciente-04.jpg", alt: "Paciente feliz tras su atención" },
+  { ruta: "img/pacientes/paciente-01.jpg", alt: "Paciente feliz tras su atención" }
 ];

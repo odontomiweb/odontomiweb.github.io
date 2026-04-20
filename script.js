@@ -199,7 +199,7 @@ function renderizarResenas() {
 function renderizarPacientesFelices() {
   const grid = document.getElementById("collagePacientes");
   if (!grid) return;
-  if (!window.PACIENTES_FELICES || PACIENTES_FELICES.length === 0) {
+  if (typeof PACIENTES_FELICES === "undefined" || PACIENTES_FELICES.length === 0) {
     grid.style.display = "none";
     return;
   }
