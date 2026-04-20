@@ -103,13 +103,22 @@ function renderizarSobreMi() {
 // --- Tratamientos ---
 function renderizarTratamientos() {
   const grid = document.getElementById("tratamientosGrid");
-  grid.innerHTML = TRATAMIENTOS.map(t => `
-    <div class="tratamiento-card">
-      <span class="tratamiento-icono">${t.icono || "🦷"}</span>
-      <h3 class="tratamiento-titulo">${t.titulo}</h3>
-      <p class="tratamiento-desc">${t.descripcion}</p>
-    </div>
-  `).join("");
+  grid.innerHTML = TRATAMIENTOS.map(t => {
+    let precioHTML = "";
+    if (typeof t.precio === "number") {
+      precioHTML = t.precio === 0
+        ? `<p class="tratamiento-precio">Sin costo</p>`
+        : `<p class="tratamiento-precio">Desde $${t.precio.toLocaleString("es-CL")}</p>`;
+    }
+    return `
+      <div class="tratamiento-card">
+        <span class="tratamiento-icono">${t.icono || "🦷"}</span>
+        <h3 class="tratamiento-titulo">${t.titulo}</h3>
+        <p class="tratamiento-desc">${t.descripcion}</p>
+        ${precioHTML}
+      </div>
+    `;
+  }).join("");
 }
 
 // --- Trayectoria ---

@@ -485,6 +485,15 @@ button { background: none; border: none; cursor: pointer; font-family: inherit; 
   font-size: 0.95rem;
   line-height: 1.6;
 }
+.tratamiento-precio {
+  margin-top: 0.9rem;
+  padding-top: 0.7rem;
+  border-top: 1px dashed var(--color-borde);
+  font-size: 0.82rem;
+  color: var(--color-acento-teal);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
 
 /* ============================================================
    TRAYECTORIA

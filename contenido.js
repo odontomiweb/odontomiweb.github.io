@@ -42,42 +42,50 @@ const TRATAMIENTOS = [
   {
     titulo: "Evaluación integral",
     descripcion: "Diagnóstico completo y plan de tratamiento personalizado, explicado con claridad.",
-    icono: "🔍"
+    icono: "🔍",
+    precio: 0
   },
   {
     titulo: "Resinas compuestas estéticas",
     descripcion: "Restauraciones en dientes anteriores y posteriores con materiales de alta estética.",
-    icono: "✨"
+    icono: "✨",
+    precio: 35000
   },
   {
     titulo: "Resinas infiltrantes",
     descripcion: "Tratamiento mínimamente invasivo para manchas blancas y lesiones iniciales de caries.",
-    icono: "💧"
+    icono: "💧",
+    precio: 40000
   },
   {
     titulo: "Blanqueamiento dental",
     descripcion: "Blanqueamiento profesional seguro y efectivo, adaptado a cada paciente.",
-    icono: "🦷"
+    icono: "🦷",
+    precio: 100000
   },
   {
     titulo: "Endodoncia (dientes anteriores)",
     descripcion: "Tratamiento de conducto en piezas anteriores con técnica precisa.",
-    icono: "🔬"
+    icono: "🔬",
+    precio: 150000
   },
   {
     titulo: "Destartraje y pulido",
     descripcion: "Limpieza supragingival y pulido leve para mantener una boca sana.",
-    icono: "🧼"
+    icono: "🧼",
+    precio: 40000
   },
   {
     titulo: "Exodoncias",
     descripcion: "Extracción de muelas del juicio y piezas que requieran retiro.",
-    icono: "⚕️"
+    icono: "⚕️",
+    precio: 70000
   },
   {
     titulo: "Sellantes y flúor",
     descripcion: "Prevención de caries en niños y adultos, con aplicación tópica de flúor.",
-    icono: "🛡️"
+    icono: "🛡️",
+    precio: 15000
   },
   {
     titulo: "Instrucción de higiene oral",
