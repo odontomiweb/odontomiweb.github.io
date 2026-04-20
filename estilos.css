@@ -1078,6 +1078,27 @@ button { background: none; border: none; cursor: pointer; font-family: inherit; 
 }
 
 /* ============================================================
+   VIDEOS EDUCATIVOS INSTAGRAM
+   ============================================================ */
+.videos-ig-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+  justify-items: center;
+}
+.video-ig-wrapper {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+}
+.video-ig-wrapper .instagram-media {
+  border-radius: 14px !important;
+}
+
+/* ============================================================
    BANNER INSTAGRAM (CTA antes del footer)
    ============================================================ */
 .banner-ig {

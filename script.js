@@ -90,6 +90,7 @@ function renderizarContenido() {
   renderizarPacientesFelices();
   renderizarUbicaciones();
   renderizarContacto();
+  renderizarVideosIG();
 }
 
 // --- Sobre mí ---
@@ -278,6 +279,30 @@ function renderizarContacto() {
   const bannerHandle = document.getElementById("bannerIgHandle");
   if (bannerLink) bannerLink.href = PROFESIONAL.instagramURL;
   if (bannerHandle) bannerHandle.textContent = "@" + PROFESIONAL.instagram;
+}
+
+// --- Videos de Instagram (embeds) ---
+function renderizarVideosIG() {
+  const grid = document.getElementById("videosIgGrid");
+  if (!grid) return;
+  if (typeof VIDEOS_IG === "undefined" || VIDEOS_IG.length === 0) {
+    grid.style.display = "none";
+    return;
+  }
+  grid.innerHTML = VIDEOS_IG.map(url => `
+    <div class="video-ig-wrapper">
+      <blockquote class="instagram-media"
+                  data-instgrm-captioned
+                  data-instgrm-permalink="${url}"
+                  data-instgrm-version="14"
+                  style="background:#FFF; border:0; margin:0; padding:0; width:100%; min-width:280px;">
+      </blockquote>
+    </div>
+  `).join("");
+  // Re-procesar embeds si el script de IG ya se cargó
+  if (window.instgrm && window.instgrm.Embeds) {
+    window.instgrm.Embeds.process();
+  }
 }
 
 

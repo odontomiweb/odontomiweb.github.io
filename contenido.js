@@ -305,7 +305,18 @@ const RESENAS = [
 // Sube los escaneos a img/diplomas/ y agrégalos aquí.
 const DIPLOMAS_IMAGENES = [
   { ruta: "img/consulta/titulacion-udd.jpg", titulo: "Titulación Cirujano Dentista — Universidad del Desarrollo 2023" },
-  { ruta: "img/diplomas/graduacion-udd.jpg", titulo: "Ceremonia de titulación — Universidad del Desarrollo 2023" }
+  { ruta: "img/diplomas/graduacion-udd.jpg", titulo: "Ceremonia de titulación — Universidad del Desarrollo 2023" },
+  { ruta: "img/diplomas/graduacion-udd-2.jpg", titulo: "Día de graduación — UDD 2023" },
+  { ruta: "img/diplomas/graduacion-udd-3.jpg", titulo: "Celebrando la titulación en la UDD" }
+];
+
+
+// ---------- VIDEOS EDUCATIVOS DE INSTAGRAM ----------
+// Pega aquí los URLs de los posts/reels que quieras mostrar.
+const VIDEOS_IG = [
+  "https://www.instagram.com/p/DQCLjTnDLUu/",
+  "https://www.instagram.com/p/DPyhl69jtRc/",
+  "https://www.instagram.com/p/DPjyqXMklK1/"
 ];
 
 
