@@ -224,14 +224,14 @@ const CASOS = [
     descripcion: "Restauración de molar con técnica mínimamente invasiva."
   },
   {
-    titulo: "Proceso de blanqueamiento",
+    titulo: "ICON vestibular (DMG)",
     imagen: "img/casos/blanqueamiento-proceso.jpg",
-    descripcion: "Pulido previo, aplicación controlada de gel y verificación final."
+    descripcion: "Infiltración de resina en mancha blanca vestibular — técnica sin desgaste del diente."
   },
   {
-    titulo: "Restauración de diente anterior",
+    titulo: "Restauración provisoria",
     imagen: "img/casos/00F1D5D8-ECAA-4CA6-AA61-C7C2C4F99720.jpg",
-    descripcion: "Reparación de pieza anterior fracturada con resina compuesta estética."
+    descripcion: "Reconstrucción provisoria de pieza anterior, previa al tratamiento definitivo."
   },
   {
     titulo: "Blanqueamiento con registro de color",
@@ -239,9 +239,9 @@ const CASOS = [
     descripcion: "Tono A3 a A1 con barrera gingival protectora — tres etapas documentadas."
   },
   {
-    titulo: "Destartraje y pulido profundo",
+    titulo: "Reconstrucciones estéticas de bordes incisales",
     imagen: "img/casos/FD25CF0B-2BC9-4A24-B3F9-EAE51E42D66A.jpg",
-    descripcion: "Remoción de tártaro devolviendo brillo natural y salud a la encía."
+    descripcion: "Restauración con resina de bordes incisales desgastados, recuperando anatomía natural."
   }
 ];
 
